@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 import fsPromises from "fs/promises";
-import path from "path";
-const dataFilePath = path.join(process.cwd(), "./employees.json");
 
 import data from "./employees.json";
 
@@ -29,7 +27,7 @@ export default async function handler(
       isActive,
     };
 
-    await fsPromises.writeFile(dataFilePath, JSON.stringify(data));
+    await fsPromises.writeFile("./src/pages/api/employees.json", JSON.stringify(data));
     res.status(200).json(data.employees);
   } catch (error) {
     res.status(500);
