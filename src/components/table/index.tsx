@@ -61,6 +61,7 @@ export const Table: React.FC<TableProps> = ({ data, onDataUpdated }) => {
 
   return (
     <div>
+      {/* Broke down rendering for header and data for easier changes targeting the two, individually in future if needed. */}
       <table className="border-2 border-slate-400">
         {renderTableHeader()}
         {renderTableData()}

@@ -12,18 +12,21 @@ export const Pagination: React.FC<PaginationProps> = ({
   data,
   onPageChange,
 }) => {
+
   const handleBack = () => {
     if (data.currentPage === 1) {
       return;
     }
     onPageChange(data.currentPage - 1);
   };
+  
   const handleForward = () => {
     if (data.currentPage === data.totalPages) {
       return;
     }
     onPageChange(data.currentPage + 1);
   };
+  
   return (
     <div className="flex gap-4 justify-end">
       <button
