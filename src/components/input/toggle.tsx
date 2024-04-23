@@ -16,7 +16,7 @@ export const ToggleInput: React.FC<ToggleInputProps> = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(e.target.checked);
-    onChange("status", e.target.checked);
+    onChange("isActive", e.target.checked);
   };
 
   return (

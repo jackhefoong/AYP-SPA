@@ -1,28 +1,18 @@
 import { useState } from "react";
 import { TextInput } from "../input/text";
 import { ToggleInput } from "../input/toggle";
+import { Data } from "../table";
 
 interface ModalProps {
-  data: {
-    id: number;
-    name: string;
-    email: string;
-    isActive: boolean;
-  };
-  onSave: (v: {
-    id: number;
-    name: string;
-    email: string;
-    isActive: boolean;
-  }) => void;
+  data: Data;
+  onSave: (data: Data) => void;
 }
 
 export const Modal: React.FC<ModalProps> = ({ data, onSave }) => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState(data);
 
-  const handleToggleStatus = (field: string, value: string | boolean) => {
-    console.log(field, value);
+  const handleChange = (field: string, value: string | boolean) => {
     setFormData({
       ...formData,
       [field]: value,
@@ -51,14 +41,22 @@ export const Modal: React.FC<ModalProps> = ({ data, onSave }) => {
             </div>
             <div className="pb-4 flex flex-col">
               <div className="flex py-4 gap-4">
-                <TextInput label="Name" defaultValue={data.name} />
-                <TextInput label="Email" defaultValue={data.email} />
-              </div>
-                <ToggleInput
-                  label="Status"
-                  checked={data.isActive}
-                  onChange={handleToggleStatus}
+                <TextInput
+                  label="name"
+                  defaultValue={data.name}
+                  onChange={handleChange}
                 />
+                <TextInput
+                  label="email"
+                  defaultValue={data.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <ToggleInput
+                label="status"
+                checked={data.isActive}
+                onChange={handleChange}
+              />
             </div>
             <div className="flex justify-end gap-4 border-t-2 pt-4">
               <button

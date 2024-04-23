@@ -3,5 +3,5 @@ interface LabelProps {
 }
 
 export const Label: React.FC<LabelProps> = ({ label }) => {
-  return <p className="text-slate-500 font-medium">{label}</p>;
+  return <p className="text-slate-500 font-medium capitalize">{label}</p>;
 };

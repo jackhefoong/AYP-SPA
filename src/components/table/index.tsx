@@ -1,20 +1,23 @@
 import { Modal } from "../modal";
 
+export type Data = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+};
+
 interface TableProps {
-  data: {
-    id: number;
-    name: string;
-    email: string;
-    isActive: boolean;
-  }[];
+  data: Data[];
 }
 
 const HEADER_STYLING = "px-8 py-2 font-medium text-start";
 const DATA_STYLING = "px-8 py-2 h-11 max-w-xl truncate";
 
 export const Table: React.FC<TableProps> = ({ data }) => {
-  const handleSave = () => {
-    data[1].name = "hehe"; //doesn't update the json
+  const handleSave = (data: Data) => {
+    // data[1].name = "hehe"; //doesn't update the json
+    console.log(data);
   };
 
   const renderTableHeader = () => {
