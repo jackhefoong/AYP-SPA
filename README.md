@@ -43,7 +43,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Interviewee's Notes
 
 ### Extra works
-- I have created multiple re-usable components such as input fields, modals as well as a **table**. Which was stated in the requirements.
+- I have created multiple re-usable components such as input fields, modals as well as a **table**. Which was stated in the requirements. The extra components were created because I felt like the code would be repetitive in future use-case, and it enhances developer experience and efficiency as we can just re-use components that were previously created.
+
 - I made use of NextJS's API routes to handle CRUD for employee data, in this case, only **Read** and **Update**
+
 - I created a simple pagination for the table, as it is mentioned that the list could contain up to 1,000 data. I figured it would not be ideal to show all 1,000 at once.
+
 - I did not use any external UI libraries for the components used, however I did use Tailwind to style my components as it is the default CSS supported by NextJS.
+
+- I would like to say that I am not really that familiar with directly working with json data as well as NextJS's API routes, however I did try my best
