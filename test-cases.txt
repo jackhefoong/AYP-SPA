@@ -1,0 +1,7 @@
+1. Table should render data according to pagination, in this case, only display 3 items per page
+2. Pagination should not be able to go less than 0, or more than the total pages
+3. "Update" Button should not show on "DEACTIVATED" users
+4. When user clicks on "Update" button, a modal should pop up.
+5. Modal should be dismissable by clicking either cancel, or outside the modal
+6. Modal should display details of the employee that was clicked
+7. Updating details of employee and clicking save should update the table
