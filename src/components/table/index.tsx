@@ -10,7 +10,7 @@ interface TableProps {
 
 const DATA_PER_PAGE = 3;
 const HEADER_STYLING = "px-8 py-2 font-medium text-start";
-const DATA_STYLING = "px-8 py-2 h-11 max-w-xl truncate";
+const DATA_STYLING = "px-8 py-2 h-11 max-w-xl truncate"; // Truncates data if data is too long
 
 export const Table: React.FC<TableProps> = ({ data, onDataUpdated }) => {
   const TOTAL_PAGES = Math.ceil(data.length / DATA_PER_PAGE);
