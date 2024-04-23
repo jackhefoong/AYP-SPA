@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { TextInput } from "../input/text";
 import { ToggleInput } from "../input/toggle";
-import { Data } from "../table";
-
+import { Data } from "@/pages/api/getEmployeeData";
 interface ModalProps {
   data: Data;
   onSave: (data: Data) => void;

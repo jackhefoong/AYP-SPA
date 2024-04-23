@@ -1,30 +1,20 @@
 import { useState } from "react";
 import { Modal } from "../modal";
 import { Pagination } from "./pagination";
-
-export type Data = {
-  id: number;
-  name: string;
-  email: string;
-  isActive: boolean;
-};
+import { Data } from "@/pages/api/getEmployeeData";
 
 interface TableProps {
   data: Data[];
+  onDataUpdated: (v: Data) => void;
 }
 
 const DATA_PER_PAGE = 3;
 const HEADER_STYLING = "px-8 py-2 font-medium text-start";
 const DATA_STYLING = "px-8 py-2 h-11 max-w-xl truncate";
 
-export const Table: React.FC<TableProps> = ({ data }) => {
+export const Table: React.FC<TableProps> = ({ data, onDataUpdated }) => {
   const TOTAL_PAGES = Math.ceil(data.length / DATA_PER_PAGE);
   const [currentPage, setCurrentPage] = useState(1);
-
-  const handleSave = (data: Data) => {
-    // data[1].name = "hehe"; //doesn't update the json
-    console.log(data);
-  };
 
   const renderTableHeader = () => {
     return (
@@ -60,7 +50,7 @@ export const Table: React.FC<TableProps> = ({ data }) => {
                   {d.isActive ? "ACTIVE" : "DEACTIVATED"}
                 </td>
                 <td className={DATA_STYLING}>
-                  {d.isActive ? <Modal data={d} onSave={handleSave} /> : null}
+                  {d.isActive ? <Modal data={d} onSave={onDataUpdated} /> : null}
                 </td>
               </tr>
             );
