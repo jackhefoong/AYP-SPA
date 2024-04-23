@@ -23,8 +23,6 @@ export default function Home() {
     setData(updatedData);
   };
 
-  console.log()
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -34,7 +32,7 @@ export default function Home() {
       {data ? (
         <Table data={data} onDataUpdated={handleDataUpdated} />
       ) : (
-        "An error has occurred"
+        "An error has occurred, data could not be fetched" // Basic error handling
       )}
     </div>
   );
