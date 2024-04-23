@@ -21,8 +21,8 @@
         {
             "id": 4,
             "name": "Jack Smith",
-            "email": "jack@ayp-group.com",
-            "isActive": false
+            "email": "jackhasalonglonglonglonglonglonglonglonglonglonglonglongemail@ayp-group.com",
+            "isActive": true
         },
         {
             "id": 5,
