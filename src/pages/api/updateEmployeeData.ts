@@ -16,19 +16,33 @@ export default async function handler(
   res: NextApiResponse<Data[]>
 ) {
   try {
-    const { id, name, email, isActive } = req.body;
+    const { updatedData, editMode } = req.body;
 
-    const indexOfEmployee = data.employees.findIndex((e) => e.id === id);
+    const indexOfEmployee = data.employees.findIndex(
+      (e) => e.id === updatedData.id
+    );
 
-    data.employees[indexOfEmployee] = {
-      id,
-      name,
-      email,
-      isActive,
-    };
+    if (editMode === "delete") {
+      const filteredData = data.employees.filter(
+        (e) => e.id !== updatedData.id
+      );
 
-    await fsPromises.writeFile("./src/pages/api/employees.json", JSON.stringify(data));
-    res.status(200).json(data.employees);
+      await fsPromises.writeFile(
+        "./src/pages/api/employees.json",
+        JSON.stringify({ employees: filteredData })
+      );
+
+      res.status(200).json(filteredData);
+    } else {
+      data.employees[indexOfEmployee] = updatedData;
+
+      await fsPromises.writeFile(
+        "./src/pages/api/employees.json",
+        JSON.stringify(data)
+      );
+
+      res.status(200).json(data.employees);
+    }
   } catch (error) {
     res.status(500);
   }

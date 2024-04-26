@@ -11,13 +11,16 @@ export default function Home() {
     setData(data);
   };
 
-  const handleDataUpdated = async (data: Data) => {
+  const handleDataUpdated = async (
+    data: Data,
+    editMode: "update" | "delete"
+  ) => {
     const response = await fetch("/api/updateEmployeeData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ updatedData: data, editMode }),
     });
     const updatedData = await response.json();
     setData(updatedData);
